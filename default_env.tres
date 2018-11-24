@@ -7,4 +7,9 @@
 
 background_mode = 2
 background_sky = SubResource( 1 )
+auto_exposure_min_luma = 0.0
+auto_exposure_max_luma = 8.47
+glow_enabled = true
+glow_hdr_threshold = 1.52
+glow_hdr_scale = 1.53
 
