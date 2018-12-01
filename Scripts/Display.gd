@@ -7,6 +7,5 @@ var NewPos
 var Cont
 
 func _process(delta):
-	NewPos = Coll.position.snapped(SpritePlayer.position*.1)
+	NewPos = Coll.position.snapped(SpritePlayer.position*.05)
 	SpritePlayer.position = NewPos
-
