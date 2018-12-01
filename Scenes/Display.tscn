@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Display.gd" type="Script" id=1]
 [ext_resource path="res://Images/Sprites.png" type="Texture" id=2]
-[ext_resource path="res://Images/Grill.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Payer.gd" type="Script" id=3]
+[ext_resource path="res://Images/Grill.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 753.698, 785.029 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 387.475, 146.05 )
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -22,10 +27,55 @@ bounce = 0.67
 radius = 19.2354
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( -73, 244 )
+rotation = -0.257249
+scale = Vector2( 1, -1 )
 script = ExtResource( 1 )
 
+[node name="Levers" type="Node2D" parent="."]
+position = Vector2( 343, -266 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Levers"]
+mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Levers/RigidBody2D"]
+position = Vector2( -34.5799, -96.3918 )
+rotation = 0.699046
+scale = Vector2( 0.82109, 0.754005 )
+polygon = PoolVector2Array( -21, -7, -26, 23, -3, 53, 41, 97, 58, 89, 24, 6, -3, -19 )
+
+[node name="Tween" type="Tween" parent="Levers/RigidBody2D"]
+
+[node name="Sprite" type="Sprite" parent="Levers/RigidBody2D"]
+position = Vector2( -44.1523, -52.0632 )
+rotation = 1.64473
+texture = ExtResource( 2 )
+vframes = 6
+hframes = 2
+frame = 4
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Levers"]
+mode = 1
+
+[node name="Sprite2" type="Sprite" parent="Levers/RigidBody2D2"]
+position = Vector2( 2.66739, 79.409 )
+rotation = 4.02023
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+vframes = 6
+hframes = 2
+frame = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Levers/RigidBody2D2"]
+position = Vector2( 22.4781, 116.874 )
+rotation = 3.19359
+scale = Vector2( 0.82109, 0.754005 )
+polygon = PoolVector2Array( -21, -7, -26, 23, -3, 53, 41, 97, 58, 89, 24, 6, -3, -19 )
+
+[node name="Tween" type="Tween" parent="Levers/RigidBody2D2"]
+
 [node name="Collision" type="Node2D" parent="."]
-position = Vector2( 471, 280 )
+position = Vector2( 531, -295 )
 scale = Vector2( 4.58783, 3.84158 )
 
 [node name="Area2D" type="Area2D" parent="Collision"]
@@ -37,17 +87,28 @@ position = Vector2( -0.0387878, -0.172195 )
 scale = Vector2( 0.122093, 0.115838 )
 shape = SubResource( 1 )
 
+[node name="Area2D2" type="Area2D" parent="Collision"]
+space_override = 3
+gravity_vec = Vector2( -1, 0.2 )
+
+[node name="CollisionPolygon2D2" type="CollisionShape2D" parent="Collision/Area2D2"]
+position = Vector2( -72.0314, 63.6468 )
+rotation = 0.704265
+scale = Vector2( 0.122093, 0.115838 )
+shape = SubResource( 5 )
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision"]
+position = Vector2( -6.97497, 130.936 )
 physics_material_override = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
-position = Vector2( -102.663, -72.8867 )
+position = Vector2( -107.458, -215.276 )
 scale = Vector2( 0.435936, 0.520619 )
 build_mode = 1
-polygon = PoolVector2Array( 363.5, 81, 268, 37, 152.5, 47.5, 103.5, 133.5, 187, 234.5, 290, 236, 385.5, 252, 417, 124.5 )
+polygon = PoolVector2Array( 432.5, 57.5001, 406, 29.5001, 291.5, 26.0001, 230.5, 26.0001, 192.5, 28.5001, 172.5, 53.5001, 153, 123.5, 106, 148.5, 70.0002, 269, 123, 329, 187, 234.5, 342.5, 231, 413.5, 200, 482.5, 87.0001 )
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 705, 299 )
+position = Vector2( 543, -352 )
 
 [node name="Sprites" type="Sprite" parent="Node2D"]
 position = Vector2( 2.75798, 2.29737 )
@@ -59,17 +120,21 @@ hframes = 2
 region_enabled = true
 region_rect = Rect2( 0, 0, 80, 80 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 705, 299 )
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=[
+"Player",
+]]
+position = Vector2( 529, -296 )
 mass = 0.21
 physics_material_override = SubResource( 3 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 0, -7.62939e-06 )
+position = Vector2( 2, -2 )
 shape = SubResource( 4 )
 
 [node name="Display" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 
+[connection signal="body_entered" from="Collision/Area2D2" to="RigidBody2D" method="_on_Area2D2_body_entered"]
