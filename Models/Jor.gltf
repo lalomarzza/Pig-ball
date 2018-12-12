@@ -1,0 +1,163 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5123,
+            "count" : 1914,
+            "max" : [
+                1265
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1266,
+            "max" : [
+                2.300323963165283,
+                5.239799499511719,
+                0.9997401237487793
+            ],
+            "min" : [
+                -2.3003242015838623,
+                -0.01823139190673828,
+                -1.6478344202041626
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1266,
+            "max" : [
+                0.9980120658874512,
+                0.9999328851699829,
+                0.9999990463256836
+            ],
+            "min" : [
+                -0.9980120658874512,
+                -1.0,
+                -0.9978359937667847
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 1266,
+            "max" : [
+                0.9887176156044006,
+                1.0
+            ],
+            "min" : [
+                -0.05954352021217346,
+                0.004434168338775635
+            ],
+            "type" : "VEC2"
+        }
+    ],
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter",
+        "version" : "2.0"
+    },
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 3828,
+            "byteOffset" : 0,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 15192,
+            "byteOffset" : 3828,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 15192,
+            "byteOffset" : 19020,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 10128,
+            "byteOffset" : 34212,
+            "target" : 34962
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 44340,
+            "uri" : "Jor.bin"
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2,
+                        "POSITION" : 1,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 0
+                }
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.49652230739593506,
+                -0.2834134101867676,
+                0.17558440566062927,
+                0.8014440536499023
+            ],
+            "translation" : [
+                -4.7314772605896,
+                6.234555721282959,
+                5.3504767417907715
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "Cube"
+        },
+        {
+            "name" : "Lamp",
+            "rotation" : [
+                0.4160570800304413,
+                0.5340110063552856,
+                -0.07351136952638626,
+                0.7323420643806458
+            ],
+            "scale" : [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "translation" : [
+                4.076245307922363,
+                21.212162017822266,
+                -1.0054539442062378
+            ]
+        }
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                1,
+                2,
+                0
+            ]
+        }
+    ]
+}

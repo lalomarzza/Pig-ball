@@ -1,78 +1,82 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Models/Isla.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Isla1.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Viewport.scn" type="PackedScene" id=3]
+[ext_resource path="res://Images/Water.png" type="Texture" id=3]
+[ext_resource path="res://Images/Rock.png" type="Texture" id=4]
+[ext_resource path="res://Images/Shiny.png" type="Texture" id=5]
+[ext_resource path="res://Images/Leafs.png" type="Texture" id=6]
+[ext_resource path="res://Materials/Display.tres" type="Material" id=7]
+[ext_resource path="res://Scenes/Viewport.scn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 
 flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.784314 )
+albedo_texture = ExtResource( 3 )
+roughness = 0.2
 
-[sub_resource type="PlaneMesh" id=2]
-
-
-[sub_resource type="SpatialMaterial" id=3]
-
-albedo_color = Color( 0.101961, 0.784314, 0.0470588, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=2]
 
 albedo_color = Color( 0, 0.854902, 0.796078, 1 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=3]
 
-albedo_color = Color( 0.0588235, 0.533333, 0.0431373, 1 )
+albedo_texture = ExtResource( 4 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=4]
 
-albedo_color = Color( 1, 0, 0, 1 )
+albedo_texture = ExtResource( 5 )
 emission_enabled = true
-emission = Color( 0.862745, 0, 0, 1 )
+emission = Color( 0, 0, 0, 1 )
 emission_energy = 8.91
 emission_operator = 0
 emission_on_uv2 = false
+emission_texture = ExtResource( 5 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=5]
 
-albedo_color = Color( 0.419608, 0.188235, 0.0235294, 1 )
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=6]
+
+flags_transparent = true
+
+[sub_resource type="PlaneMesh" id=7]
+
 
 [sub_resource type="SpatialMaterial" id=8]
 
-flags_transparent = true
-vertex_color_use_as_albedo = true
 
-[sub_resource type="SpatialMaterial" id=9]
-
-flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0 )
-
-[node name="Isla1" instance=ExtResource( 1 )]
+[node name="Isla1" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Grid002" type="MeshInstance" parent="." index="0"]
-transform = Transform( 2.40767, 0, 0, 0, 2.40767, 0, 0, 0, 2.40767, -3.18906, 3.06498, 3.29791 )
+[node name="Cube" parent="." index="0"]
 visible = false
-material_override = SubResource( 1 )
-mesh = SubResource( 2 )
-material/0 = null
 
 [node name="Grid" parent="." index="1"]
-material/0 = SubResource( 3 )
-material/1 = SubResource( 4 )
-material/2 = SubResource( 5 )
-material/3 = SubResource( 6 )
-material/4 = SubResource( 7 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+material/4 = SubResource( 5 )
 
-[node name="Grid001" parent="." index="2"]
+[node name="Grid002" parent="." index="2"]
+transform = Transform( 2.40767, 0, 0, 0, 2.40767, 0, 0, 0, 2.40767, -3.18906, 3.06498, 3.29791 )
+visible = false
+material_override = SubResource( 6 )
+mesh = SubResource( 7 )
+
+[node name="Grid001" parent="." index="3"]
 material_override = SubResource( 8 )
-material/0 = SubResource( 9 )
+material/0 = ExtResource( 7 )
 
-[node name="Camera2" type="Camera" parent="." index="5"]
+[node name="Camera2" type="Camera" parent="." index="4"]
 transform = Transform( -0.0539557, 0.992208, -0.112301, -0.266592, 0.0940691, 0.959208, 0.962298, 0.0816934, 0.25944, -2.9777, 3.94216, 6.18214 )
 
-[node name="Viewport" parent="." index="6" instance=ExtResource( 3 )]
+[node name="Viewport" parent="." index="5" instance=ExtResource( 8 )]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="7"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="6"]
 transform = Transform( 0.791409, 0.339957, 0.508036, -0.611287, 0.440129, 0.657734, 0, -0.831093, 0.556134, 0, 10.4776, 0 )
 light_color = Color( 1, 1, 0.796078, 1 )
 light_energy = 0.44

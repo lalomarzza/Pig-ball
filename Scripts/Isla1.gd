@@ -2,7 +2,7 @@ extends Spatial
 
 func _ready():
 	var viewport = get_node("Viewport")
-	get_node("Grid001").material_override.albedo_texture = viewport.get_texture()
+	get_node("/root/Isla1/Grid001").material_override.albedo_texture = viewport.get_texture()
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_left"):
